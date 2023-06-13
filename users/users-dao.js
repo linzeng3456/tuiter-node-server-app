@@ -1,7 +1,5 @@
 let users = [];
 
-console.log("-----all users=============")
-console.log(users)
 export const findAllUsers = () => users;
 
 
