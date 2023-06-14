@@ -19,6 +19,8 @@ export const findUserByUsername = (username) => {
 
 export const findUserByCredentials = (username, password) => {
   const index = users.findIndex((u) => u.username === username && u.password === password);
+  console.log("-----login findUserByCredentials---")
+  console.log(users)
   if (index !== -1) return users[index];
   return null;
 };
