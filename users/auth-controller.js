@@ -9,7 +9,6 @@ const AuthController = (app) => {
       return;
     }
     const newUser = usersDao.createUser(req.body);
-
     req.session["currentUser"] = newUser;
     res.json(newUser);
   };

@@ -18,8 +18,6 @@ export const findUserByUsername = (username) => {
 
 
 export const findUserByCredentials = (username, password) => {
-  console.log("-----findUser all users=============")
-  console.log(users)
   const index = users.findIndex((u) => u.username === username && u.password === password);
   if (index !== -1) return users[index];
   return null;
@@ -28,8 +26,6 @@ export const findUserByCredentials = (username, password) => {
 
 export const createUser = (user) => {
   users.push(user);
-  console.log("-----createUser all users=============")
-  console.log(users)
   return user
 };
 
