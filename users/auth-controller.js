@@ -8,8 +8,6 @@ const AuthController = (app) => {
       res.sendStatus(409);
       return;
     }
-    console.log("-----register user---")
-    console.log(user)
     const newUser = usersDao.createUser(req.body);
     req.session["currentUser"] = newUser;
     res.json(newUser);
@@ -27,9 +25,6 @@ const AuthController = (app) => {
   };
   const profile  = (req, res) => {
     const currentUser = req.session["currentUser"];
-    console.log("-----profile currentUser---")
-    console.log(req.session)
-    console.log(currentUser)
     if (!currentUser) {
       res.sendStatus(404);
       return;

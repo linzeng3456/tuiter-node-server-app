@@ -19,14 +19,6 @@ app.use(
       origin: ["http://localhost:3000","https://adorable-horse-cee909.netlify.app","https://a5--adorable-horse-cee909.netlify.app"]
     })
 );
-app.use(
-    session({
-      secret: 'your-secret-key',
-      resave: false,
-      saveUninitialized: false,
-      store: new session.MemoryStore(),
-    })
-);
 app.use(express.json());
 AuthController(app);
 HelloController(app);
