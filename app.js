@@ -22,7 +22,7 @@ app.use(
 app.use(
     cors({
       credentials: true,
-      origin: ["http://localhost:3000","https://adorable-horse-cee909.netlify.app","https://a5--adorable-horse-cee909.netlify.app"]
+      origin: ["http://localhost:3000","https://a6--capable-dodol-7ac34a.netlify.app"]
     })
 );
 app.use(express.json());
