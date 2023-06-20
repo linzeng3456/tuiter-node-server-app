@@ -10,13 +10,27 @@ const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0
 // const CONNECTION_STRING = process.env.DB_CONNECTION_STRING;
 console.log("---------CONNECTION_STRING--------")
 console.log(CONNECTION_STRING);
-mongoose.connect(CONNECTION_STRING);
+mongoose.connect(CONNECTION_STRING, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('Connected to MongoDB');
+})
+.catch((error) => {
+  console.error('Error connecting to MongoDB:', error);
+});
 const app = express();
 app.use(
     session({
       secret: "any string",
       resave: false,
+      proxy: true,
       saveUninitialized: true,
+      cookie: {
+        sameSite: "none",
+        secure: true,
+      },
     })
 );
 app.use(
