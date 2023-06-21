@@ -6,8 +6,8 @@ import UserController from "./users/users-controller.js";
 import TuitsController from "./controllers/tuits/tuits-controller.js";
 import AuthController from "./users/auth-controller.js";
 import mongoose from "mongoose";
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/tuiter';
-// const CONNECTION_STRING = process.env.DB_CONNECTION_STRING;
+// const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/tuiter';
+const CONNECTION_STRING = 'mongodb+srv://linzeng3456:O1DEHdpiXB8K8F3R@cluster0.cvrzwnp.mongodb.net/tuiter?retryWrites=true&w=majority';
 console.log("---------CONNECTION_STRING--------")
 console.log(CONNECTION_STRING);
 mongoose.connect(CONNECTION_STRING);
