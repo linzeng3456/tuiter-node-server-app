@@ -17,7 +17,7 @@ app.use(
       secret: "any string",
       resave: false,
       proxy: true,
-      saveUninitialized: false,
+      saveUninitialized: true,
       cookie: {
         sameSite: "none",
         secure: true,
@@ -34,5 +34,4 @@ app.use(express.json());
 AuthController(app);
 HelloController(app);
 UserController(app);
-TuitsController(app);
 app.listen(process.env.PORT || 4000);

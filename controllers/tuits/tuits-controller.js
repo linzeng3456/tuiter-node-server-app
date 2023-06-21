@@ -3,7 +3,7 @@
 import * as tuitsDao from './tuits-dao.js'
 
 const templateTuit = {
-  "userName": "NASA",
+  "username": "NASA",
   "handle": "@nasa",
   "image": "nasa.png",
   "topic": "Space",
@@ -19,8 +19,11 @@ const createTuit = async (req, res) => {
     ...templateTuit,
     // _id: (new Date()).getTime(),
   }
+  console.log("----createTuit-------")
+  console.log(newTuit)
   // tuits.push(newTuit);
   const insertedTuit = await tuitsDao.createTuit(newTuit);
+  console.log(insertedTuit)
   res.json(insertedTuit);
 }
 const findTuits  = async (req, res) => {
@@ -30,16 +33,13 @@ const findTuits  = async (req, res) => {
   res.json(tuits);
 }
 const updateTuit = async (req, res) => {
-  const tuitId = req.params.tid;
-  const updates = req.boby;
-  // const tuitIndex = tuits.findIndex((t) => t.id === tuitId);
-  // tuits[tuitIndex] = {...tuits[tuitIndex], ...updates};
+  const tuitdIdToUpdate = req.params.tid;
+  const updates = req.body;
   const status = await tuitsDao.updateTuit(tuitdIdToUpdate, updates);
   res.json(status);
 }
 const deleteTuit = async (req, res) => {
   const tuitdIdToDelete = req.params.tid;
-  // tuits = tuits.filter((t) => t._id !== tuitdIdToDelete);
   const status = await tuitsDao.deleteTuit(tuitdIdToDelete);
   res.json(status);
 }
